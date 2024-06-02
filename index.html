@@ -100,7 +100,7 @@
         output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
       } catch (error){
         errored = true;
-        throw new Error('Invalid Input');
+        throw new YouSuckError();
       } finally {
         if (errored) {
           console.error('Oh No!');
@@ -120,6 +120,14 @@
     function testtest(){
       test();
     }
+
+    class YouSuckError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "YourInputSucksError";
+      }
+    }
+
   </script>
 </body>
 
