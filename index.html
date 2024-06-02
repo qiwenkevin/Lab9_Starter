@@ -69,21 +69,21 @@
     </form>
 
     <section id="error-btns">
-      <button>Console Log</button>
-      <button>Console Error</button>
-      <button>Console Count</button>
-      <button>Console Warn</button>
-      <button>Console Assert</button>
-      <button>Console Clear</button>
-      <button>Console Dir</button>
-      <button>Console dirxml</button>
-      <button>Console Group Start</button>
-      <button>Console Group End</button>
-      <button>Console Table</button>
-      <button>Start Timer</button>
-      <button>End Timer</button>
-      <button>Console Trace</button>
-      <button>Trigger a Global Error</button>
+      <button onclick="console.log('Console Log Demo')">Console Log</button>
+      <button onclick="console.error('Console Error Demo')">Console Error</button>
+      <button onclick="console.count('Console Counter')">Console Count</button>
+      <button onclick="console.warn('Console Warn Demo')">Console Warn</button>
+      <button onclick="console.assert(1==0, 'Assert Demo')">Console Assert</button>
+      <button onclick="console.clear()">Console Clear</button>
+      <button onclick="console.dir(this)">Console Dir</button>
+      <button onclick="console.dirxml(this)">Console dirxml</button>
+      <button onclick="console.group('Group Demo')">Console Group Start</button>
+      <button onclick="console.groupEnd('Group Demo')">Console Group End</button>
+      <button onclick="console.table(['console','table','test'])">Console Table</button>
+      <button onclick="console.time('time demo')">Start Timer</button>
+      <button onclick="console.timeEnd('time demo')">End Timer</button>
+      <button onclick="test()">Console Trace</button>
+      <button onclick="">Trigger a Global Error</button>
     </section>
   </main>
 
@@ -102,6 +102,12 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    function test(){
+      console.trace();
+    }
+    function testtest(){
+      test();
+    }
   </script>
 </body>
 
