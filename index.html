@@ -83,9 +83,18 @@
       <button onclick="console.time('time demo')">Start Timer</button>
       <button onclick="console.timeEnd('time demo')">End Timer</button>
       <button onclick="test()">Console Trace</button>
-      <button onclick="">Trigger a Global Error</button>
+      <button onclick="badCode()">Trigger a Global Error</button>
     </section>
   </main>
+
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "1e99651682c44eb887e7aa034e84b9a1"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+                        
 
   <script>
     let form = document.querySelector('form');
@@ -128,6 +137,15 @@
       }
     }
 
+    function badCode(){
+      blablabad();
+    }
+
+    window.onerror = function (message, source, lineno, colno, error) {
+      console.log("Global Error Caught:", message);
+      TrackJS.track(error);
+      return true; 
+    };
   </script>
 </body>
 
