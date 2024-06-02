@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "1e99651682c44eb887e7aa034e84b9a1"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+
+    window.onerror = function (message, source, lineno, colno, error) {
+      console.log("Global Error Caught:", message);
+      TrackJS.track(error);
+      return true; 
+    };
+  </script>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -87,13 +101,7 @@
     </section>
   </main>
 
-  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
-  <script>
-    window.TrackJS && TrackJS.install({ 
-      token: "1e99651682c44eb887e7aa034e84b9a1"
-      // for more configuration options, see https://docs.trackjs.com
-    });
-  </script>
+  
                         
 
   <script>
@@ -140,12 +148,6 @@
     function badCode(){
       blablabad();
     }
-
-    window.onerror = function (message, source, lineno, colno, error) {
-      console.log("Global Error Caught:", message);
-      TrackJS.track(error);
-      return true; 
-    };
   </script>
 </body>
 
